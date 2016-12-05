@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+.btn-div{
+  margin-top: 10px;
+}
+
+/*.background{
+  background-image: url("animal-dog-pet.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}*/
+/*.parallax-container {
+      height: 500px;
+    }*/
