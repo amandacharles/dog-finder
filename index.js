@@ -13,10 +13,10 @@ for (const dog of dogs) {
   const $img = $('<img>').addClass('activator responsive-img dog-image')
   const $card = $('<div>').addClass('card medium valign-center');
   const $content = $('<div>').addClass('card-content center valign');
-  const $span = $('<span>').addClass('card-title grey-text text-darken-4');
+  const $span = $('<span>').addClass('card-title grey-text text-darken-4 activator');
   const $spanX = $('<span>').addClass('activator card-title')
-  const $paragraph = $('<p>');
-  const $link = $('<a>')
+  const $paragraph = $('<p>').addClass('activator');
+  const $link = $('<a>');
   const $revealLink = $('<a>');
   const $revealDiv = $('<div>').addClass('card-reveal');
   const $revealTitle = $('<span>').addClass('activator card-title grey-text text-darken-4');
@@ -46,6 +46,10 @@ $card.append($revealDiv);
 $spanX.append($icon)
 $revealDiv.append($spanX, $revealTitle, $revealContent, $link);
 }
+
+$('.card').hover(function(){
+  $(this).toggleClass("highlight");
+});
   }
 
 
@@ -215,5 +219,7 @@ renderDogs();
           $(document).ready(function() {
     $('select').material_select();
   });
+
+
 
   })();
