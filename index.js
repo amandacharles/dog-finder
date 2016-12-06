@@ -84,8 +84,6 @@ event.preventDefault()
 
 let results = data;
 let petArray = results.petfinder.pets.pet
-console.log(data);
-console.log(petArray);
 
 for (let i = 0; i < petArray.length; i++) {
 let onePet = petArray[i];
@@ -109,14 +107,13 @@ renderDogs();
 
 // Breed Buttons ************
   $('#searchForm').on('submit', (event) => {
-    if ($( "select option:selected" ).val() === 'senior') {
+    if ($( "select option:selected" ).val() !== 'chihuahua' || $( "select option:selected" ).val() !== 'pit bull terrier') {
 return;
     }
 
     event.preventDefault();
     dogs = [];
     let theBreed;
-
 
 
   theBreed = $( "select option:selected").val();
@@ -162,59 +159,69 @@ renderDogs();
 
 
 // SPECIAL NEEDS
-//       $('.btn').on('click', (event) => {
-//
-//         event.preventDefault();
-//         dogs = [];
-//
-//           let theZipcode = $('#icon_prefix').val();
-//
-//           if (theZipcode === '') {
-//             alert('please enter a zipcode');
-//           }
-//
-//             const $xhr = $.ajax ({
-//               method: 'GET',
-//               url: 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=2d2685ee8c7cbfa08366ece6e45d8ddd&location='+theZipcode+'&animal=dog&count=100&aoutput=full&format=json',
-//               dataType: 'json',
-//             });
-//
-//             $xhr.done((data) => {
-//               if ($xhr.status !== 200){
-//                 return;
-//               }
-//
-//       let results = data;
-//       let petArray = data.petfinder.pets.pet
-//       console.log(petArray);
-//       let optionsArray = petArray[0].options.option;
-//
-//       for (let i = 0; i < petArray.length; i++) {
-//       let onePet = petArray[i];
-//
-//       let dog = {
-//         age: onePet.age.$t,
-//         sex: onePet.sex.$t,
-//         name: onePet.name.$t,
-//         description: onePet.description.$t,
-//         email: onePet.contact.email.$t,
-//         image: onePet.media.photos.photo[2].$t
-//       }
-//
-//       console.log(optionsArray);
-// for (let i = 0; i < optionsArray.length; i++) {
-//   let theOption = optionsArray[i];
-//   for (const key in theOption) {
-//     if (theOption['key'] === 'specialNeeds') {
-//       console.log(theOption.key)
-//     }
-//   }
-// }
-//
-//       }
-//       renderDogs();
-//             });
-//           });
+$('#searchForm').on('submit', (event) => {
+  if ($( "select option:selected" ).val() !== 'special') {
+return;
+  }
+        event.preventDefault();
+        dogs = [];
+        let specialArray = [];
+
+          let theZipcode = $('#icon_prefix').val();
+
+          if (theZipcode === '') {
+            alert('please enter a zipcode');
+          }
+
+            const $xhr = $.ajax ({
+              method: 'GET',
+              url: 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=2d2685ee8c7cbfa08366ece6e45d8ddd&location='+theZipcode+'&animal=dog&count=100&aoutput=full&format=json',
+              dataType: 'json',
+            });
+
+            $xhr.done((data) => {
+              if ($xhr.status !== 200){
+                return;
+              }
+
+      // let results = data;
+
+
+      let petArray = data.petfinder.pets.pet
+      // console.log(petArray);
+
+for (let i = 0; i < petArray.length; i++) {
+  let thisPet = petArray[i];
+  let optionsArray = thisPet.options.option;
+  for (let i = 0; i < optionsArray.length; i++) {
+    let x = optionsArray[i]
+    for (const key in x) {
+    if (x[key] === 'specialNeeds'){
+      specialArray.push(thisPet);
+    }
+    }
+  }
+}
+
+console.log(specialArray);
+
+      for (let i = 0; i < specialArray.length; i++) {
+      let onePet = specialArray[i];
+
+      let dog = {
+        age: onePet.age.$t,
+        sex: onePet.sex.$t,
+        name: onePet.name.$t,
+        description: onePet.description.$t,
+        email: onePet.contact.email.$t,
+        image: onePet.media.photos.photo[2].$t
+      }
+      dogs.push(dog);
+      }
+
+      renderDogs();
+            });
+          });
 //
           $(document).ready(function() {
     $('select').material_select();
