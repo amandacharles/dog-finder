@@ -2,6 +2,7 @@
   'use strict';
 
   let dogs = [];
+  let specialArray = [];
 
   const renderDogs = function(){
 
@@ -57,9 +58,11 @@ $('.card').hover(function(){
 
 $('#searchForm').on('submit', (event) => {
 
-if ($( "select option:selected" ).val() !== 'senior') {
-  return
-}
+
+console.log($( "select option:selected" ).val());
+
+if ($( "select option:selected" ).val() === 'senior') {
+
 
 event.preventDefault()
 
@@ -102,16 +105,26 @@ dogs.push(dog);
 }
 renderDogs();
       });
+    }
     });
 
 
+
+
 // Breed Buttons ************
+
+
   $('#searchForm').on('submit', (event) => {
-    if ($( "select option:selected" ).val() !== 'chihuahua' || $( "select option:selected" ).val() !== 'pit bull terrier') {
-return;
-    }
+
+
+    console.log($( "select option:selected" ).val());
+
+    if ($( "select option:selected" ).val() === 'chihuahua' || $( "select option:selected" ).val() === 'pit bull terrier') {
+
+
 
     event.preventDefault();
+
     dogs = [];
     let theBreed;
 
@@ -154,18 +167,20 @@ for (let i = 0; i < petArray.length; i++) {
 }
 renderDogs();
         });
-
+      }
       });
 
 
 // SPECIAL NEEDS
 $('#searchForm').on('submit', (event) => {
-  if ($( "select option:selected" ).val() !== 'special') {
-return;
-  }
-        event.preventDefault();
+  if ($( "select option:selected" ).val() === 'special') {
+
+  
+
+  event.preventDefault();
+
         dogs = [];
-        let specialArray = [];
+        specialArray = [];
 
           let theZipcode = $('#icon_prefix').val();
 
@@ -184,11 +199,7 @@ return;
                 return;
               }
 
-      // let results = data;
-
-
       let petArray = data.petfinder.pets.pet
-      // console.log(petArray);
 
 for (let i = 0; i < petArray.length; i++) {
   let thisPet = petArray[i];
@@ -202,8 +213,6 @@ for (let i = 0; i < petArray.length; i++) {
     }
   }
 }
-
-console.log(specialArray);
 
       for (let i = 0; i < specialArray.length; i++) {
       let onePet = specialArray[i];
@@ -221,12 +230,11 @@ console.log(specialArray);
 
       renderDogs();
             });
+          }
           });
-//
+
+
           $(document).ready(function() {
     $('select').material_select();
   });
-
-
-
   })();
