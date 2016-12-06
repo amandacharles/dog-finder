@@ -10,20 +10,46 @@ $('#displayHere').empty();
 for (const dog of dogs) {
   const $col = $('<div>').addClass('col m4');
   const $imgDiv = $('<div>').addClass('card-image waves-effect waves-block waves-light');
-  const $img = $('<img>').addClass('activator')
-  const $card = $('<div>').addClass('card');
-  const $content = $('<div>').addClass('card-content center');
+  const $img = $('<img>').addClass('activator responsive-img dog-image')
+  const $card = $('<div>').addClass('card medium valign-center');
+  const $content = $('<div>').addClass('card-content center valign');
+  const $span = $('<span>').addClass('card-title grey-text text-darken-4');
+  const $spanX = $('<span>').addClass('activator card-title')
+  const $paragraph = $('<p>');
+  const $link = $('<a>')
+  const $revealLink = $('<a>');
+  const $revealDiv = $('<div>').addClass('card-reveal');
+  const $revealTitle = $('<span>').addClass('activator card-title grey-text text-darken-4');
+  const $icon = $('<i>').addClass(' material-icons right');
+  // const $pawIcon = $('<i>').addClass(' material-icons left')
+  const $revealContent = $('<p>');
 
- // $img.attr({
- //   src:
- // })
- $content.text(dog.name);
 
-$
+  $img.attr({
+         src: dog.image,
+         alt: 'picture of dog'
+       });
+ $span.text(dog.name);
+ // $revealLink.text('Click here for more info!')
+ $revealTitle.text(dog.name);
+ $revealContent.text(dog.description);
+ $paragraph.text(dog.age+'  |  '+dog.sex);
+ $revealContent.text(dog.description);
+ $link.text(dog.email).attr('href', 'mailto:'+dog.email);
+ $icon.text('close');
+ // $pawIcon.text('pets');
+
+
+ $('#displayHere').append($col);
+ $col.append($card)
+$card.prepend($imgDiv);
+$imgDiv.append($img);
 $card.append($content);
-$col.append($card)
-$('#displayHere').append($col);
-
+$content.append($span, $paragraph);
+$card.append($revealDiv);
+// $revealTitle.append($icon)
+$spanX.append($icon)
+$revealDiv.append($spanX, $revealTitle, $revealContent, $link);
 }
   }
 // Senior Dog Button ******
@@ -49,11 +75,17 @@ $('.btn').on('click', (event) => {
         if ($xhr.status !== 200){
           return;
         }
+
 let results = data;
 let petArray = data.petfinder.pets.pet
 
+
+
+
+
 for (let i = 0; i < petArray.length; i++) {
 let onePet = petArray[i];
+
 
 let dog = {
   age: onePet.age.$t,
@@ -61,11 +93,12 @@ let dog = {
   name: onePet.name.$t,
   description: onePet.description.$t,
   email: onePet.contact.email.$t,
-  // image: onePet.media.photos.photo[0].$t
-}
-dogs.push(dog);
+  image: onePet.media.photos.photo[2].$t
 }
 
+dogs.push(dog);
+
+}
 renderDogs();
       });
     });
@@ -79,6 +112,10 @@ renderDogs();
 
     let theBreed;
     let $clickedBtn = $(event.target);
+
+if ($clickedBtn === senior) {
+return;
+}
 
 if ($clickedBtn) {
   theBreed = $clickedBtn.attr('id');
@@ -112,23 +149,68 @@ for (let i = 0; i < petArray.length; i++) {
     name: onePet.name.$t,
     description: onePet.description.$t,
     email: onePet.contact.email.$t,
-    // image: onePet.media.photos.photo[0].$t
+    image: onePet.media.photos.photo[0].$t
   }
+
   dogs.push(dog);
+
 }
 
 renderDogs();
-console.log(dogs);
-console.log(typeof dogs[0].description);
-console.log(data);
 
+if ($revealContent) {
+
+}
         });
       });
 
-})();
 
+// SPECIAL NEEDS
+      $('.btn').on('click', (event) => {
+
+        event.preventDefault();
+        dogs = [];
+
+          let theZipcode = $('#icon_prefix').val();
+
+          if (theZipcode === '') {
+            alert('please enter a zipcode');
+          }
+
+            const $xhr = $.ajax ({
+              method: 'GET',
+              url: 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=2d2685ee8c7cbfa08366ece6e45d8ddd&location='+theZipcode+'&animal=dog&output=full&format=json',
+              dataType: 'json',
+            });
+
+            $xhr.done((data) => {
+              if ($xhr.status !== 200){
+                return;
+              }
+      let results = data;
+      let petArray = data.petfinder.pets.pet
+
+      for (let i = 0; i < petArray.length; i++) {
+      let onePet = petArray[i];
+
+      let dog = {
+        age: onePet.age.$t,
+        sex: onePet.sex.$t,
+        name: onePet.name.$t,
+        description: onePet.description.$t,
+        email: onePet.contact.email.$t,
+        image: onePet.media.photos.photo[0].$t
+      }
+
+      }
+      renderDogs();
+            });
+          });
 
 
 // $(document).ready(function(){
 //       $('.parallax').parallax();
 //     });
+
+
+  })();

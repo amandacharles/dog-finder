@@ -2,6 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+
   }
 
   main {
@@ -10,12 +11,23 @@ body {
 .btn-div{
   margin-top: 10px;
 }
-
-/*.background{
-  background-image: url("animal-dog-pet.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
+a{
+  display: inline-flex;
+}
+/*img{
+  max-width: 100%;
+      height: auto;
 }*/
-/*.parallax-container {
-      height: 500px;
-    }*/
+#revealLink{
+ position: sticky;
+}
+.dogcol{
+  padding: 4px;
+  margin: 10px;
+}
+img{
+  float: right;
+}
+.card{
+  position: relative;
+}
