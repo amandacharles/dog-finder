@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+    flex: 1 0 auto;
+  }
+
+a {
+    display: inline-flex;
+  }
+
+/*img {
+    float: right;
+  }*/
+
+.btn-div {
+  margin-top: 10px;
+}
+
+.dogcol {
+  padding: 4px;
+  margin: 10px;
+}
+
+.card {
+  position: relative;
+}
+
+.highlight {
+box-shadow: 2px 2px 49px -5px rgba(76,75,87,1);
+}
+
+.input-field label {
+     color: #616161;
+   }
+
+.input-field input[type=text]:focus + label {
+     color: #616161;
+   }
+
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #4a148c;
+     box-shadow: 0 1px 0 0 #4a148c;
+}
+
+.input-field input[type=text].valid {
+     border-bottom: 1px solid #4a148c;
+     box-shadow: 0 1px 0 0 #4a148c;
+   }
+
+.dropdown-content li>a, .dropdown-content li>span{
+  color: #4a148c;
+}
+
+.select-dropdown {
+  color: #4a148c;
+}
+
+.parallax-container {
+  height: 170px;
+}
+
+.topImage {
+  border-left: 7px solid white;
+  margin-top: 30px;
+  background: url(/Users/amanda/Projects/week05/dog-finder/Images/dreamstime_s_28865443.jpg);
+     background-size: contain;
+     background-repeat: no-repeat;
+     height: 300px;
+}
+
+.midImage {
+  background: url(/Users/amanda/Projects/week05/dog-finder/Images/dreamstime_s_69763149.jpg);
+     background-size: contain;
+     background-repeat: no-repeat;
+     height: 300px;
+}
+.addMe {
+  background-color: #4a148c;
+  color: white;
+  font-size: medium;
+}
+
+.addMeToo {
+  font-size: large;
+  color: white;
+}
+.underdogs {
+  color: black;
+  font-weight: 400;
+}
+
+.w {
+  color: #4a148c;
+  font-weight: 600;
+  font-size: 500%;
+}
+.aboutBlurb {
+  font-size: 1.3em;
+}
