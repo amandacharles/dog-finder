@@ -12,9 +12,9 @@ a {
     display: inline-flex;
   }
 
-/*img {
-    float: right;
-  }*/
+li a:hover {
+  color: #ff6f00;
+}
 
 .btn-div {
   margin-top: 10px;
@@ -60,7 +60,7 @@ box-shadow: 2px 2px 49px -5px rgba(76,75,87,1);
 }
 
 .parallax-container {
-  height: 170px;
+  height: 180px;
 }
 
 .topImage {
@@ -88,16 +88,79 @@ box-shadow: 2px 2px 49px -5px rgba(76,75,87,1);
   font-size: large;
   color: white;
 }
-.underdogs {
+ .underdogs{
   color: black;
-  font-weight: 400;
+  font-weight: 100%;
 }
 
-.w {
+.w{
   color: #4a148c;
   font-weight: 600;
   font-size: 500%;
 }
 .aboutBlurb {
   font-size: 1.1em;
+}
+.dogbio {
+  font-weight: 400;
+}
+.manydogs{
+  background: url(/Users/amanda/Projects/week05/dog-finder/Images/dreamstime_s_21846069.jpg);
+     background-size: contain;
+     background-repeat: no-repeat;
+     height: 300px;
+}
+.wheeldog {
+  background: url(/Users/amanda/Projects/week05/dog-finder/Images/dreamstime_s_57801899.jpg);
+     background-size: contain;
+     background-repeat: no-repeat;
+     height: 250px;
+     background-position: left;
+
+}
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 55%;
+  left:50%;
+}
+.resources a {
+  color: #4a148c;
+}
+/*.card .card-title {
+    font-size: 24px;
+    font-weight: 400;
+    color: #4a148c;
+}*/
+.card-reveal a {
+  color: #4a148c;
+}
+.card .card-content p {
+  color: white;
+  font-weight: 200;
+}
+.card .card-content .card-title {
+  font-weight: 300;
+  font-size: larger;
+}
+.card .card-reveal .card-title {
+  color: #4a148c;
+  font-weight: 500;
+}
+nav .brand-logo {
+  color:purple;
+}
+nav .brand-logo i, nav .brand-logo [class^="mdi-"], nav .brand-logo [class*="mdi-"], nav .brand-logo i.material-icons {
+  color: white;
+}
+.dogQuote {
+font-size: 1.3em;
+}
+.quoteDiv{
+  padding-left: 30px;
+}
+.rpageHeader {
+  font-weight: 600;
+  display: inline;
 }

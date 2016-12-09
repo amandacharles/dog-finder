@@ -20,9 +20,9 @@
       const $paragraph = $('<p>').addClass('activator');
       const $link = $('<a>');
       const $revealDiv = $('<div>').addClass('card-reveal');
-      const $revealTitle = $('<span>').addClass('activator card-title grey-text text-darken-4');
+      const $revealTitle = $('<span>').addClass('activator card-title text-darken-4');
       const $icon = $('<i>').addClass(' material-icons right black-text');
-      const $revealContent = $('<p>').addClass('grey-text text-darken-4');
+      const $revealContent = $('<p>').addClass('grey-text text-darken-4 dogbio');
 
       $card.addClass('addMe');
       $content.addClass('addMeToo');
@@ -50,9 +50,22 @@
       $revealDiv.append($spanX, $revealTitle, $revealContent, $link);
     }
 
+backToTop();
+
     $('.card').hover(function(){
   $(this).toggleClass("highlight");
     });
+  }
+
+  const backToTop = function() {
+      const $contain = $('<div>').addClass('container')
+       const $theFooter = $('#footer');
+       const $row = $('<div>').addClass('row center');
+       const $col = $('<div>').addClass('col m4 s12 center center-align');
+       const $linkUp = $('<p><a href="#grass" class="purple-text text-darken-4">Back to the search form</a></p>')
+
+      $contain.append($row).append($col).append($linkUp).appendTo('#displayHere')
+
   }
 
 // Search for Senior Dogs   *********************
@@ -67,7 +80,7 @@
       const theZipcode = $('#icon_prefix').val();
 
       if (theZipcode === '') {
-      alert('please enter a zipcode');
+      Materialize.toast('Please enter a location.', 2000);
     }
 
       const $xhr = $.ajax({
@@ -99,6 +112,7 @@
           dogs.push(dog);
         }
         renderDogs();
+
       });
     }
   });
@@ -119,7 +133,7 @@
       let theZipcode = $('#icon_prefix').val();
 
       if (theZipcode === '') {
-        alert('please enter a zipcode');
+        Materialize.toast('Please enter a location.', 2000);
       }
 
         const $xhr = $.ajax ({
@@ -150,6 +164,7 @@ for (let i = 0; i < petArray.length; i++) {
   dogs.push(dog);
 }
       renderDogs();
+
     });
     }
   });
@@ -167,7 +182,7 @@ $('#searchForm').on('submit', (event) => {
       let theZipcode = $('#icon_prefix').val();
 
     if (theZipcode === '') {
-         alert('please enter a zipcode');
+         Materialize.toast('Please enter a location.', 2000);
           }
 
     const $xhr = $.ajax ({
@@ -210,6 +225,7 @@ for (let i = 0; i < petArray.length; i++) {
       dogs.push(dog);
       }
       renderDogs();
+
     });
   }
 });
@@ -222,4 +238,5 @@ for (let i = 0; i < petArray.length; i++) {
   $(document).ready(function(){
       $('.parallax').parallax();
     });
+    $(".button-collapse").sideNav();
   })();

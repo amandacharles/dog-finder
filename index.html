@@ -4,7 +4,7 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>wUnderdogs</title>
+  <title>wunderdogs</title>
 
   <script defer src="https://code.jquery.com/jquery-2.2.4.js"
   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
@@ -17,14 +17,26 @@
   <script defer src="JS/index.js"></script>
 
     </head>
-  </head>
   <body>
+
 <div class="navbar-fixed">
-    <nav class="amber darken-4">
+  <nav>
+      <div class="nav-wrapper amber darken-4">
+        <ul id="nav-mobile" class="right s5 pull-s7">
+
+          <li><a href="extra.html">Resources<i class="material-icons right large">pets</i></a></li>
+        </ul>
+
+      </div>
+    </nav>
+
+
+    <!-- <nav class="amber darken-4">
        <div class="nav-wrapper">
-         <a href="extra.html" class="brand-logo right"><i class="material-icons right large">pets</i></a>
+         <a href="extra.html" class="brand-logo right">resources<i class="material-icons right large">pets</i></a>
        </div>
-     </nav>
+     </nav> -->
+
 </div>
 <!-- NAV ********************* -->
 <div class="container">
@@ -32,13 +44,13 @@
     <div class="col m7">
 <div class="row">
   <div class="col s12">
-    <h1 class="left-align w">W<span class="underdogs">underdogs</span> </h1>
+    <h1 class="left-align w"><span class="underdogs">w</span>underdogs</h1>
   </div>
 </div>
 <div class="row">
   <div class="col s12">
     <blockquote class="aboutBlurb">
-       Shelter dogs in general often struggle to find homes, and some types have it particularly bad.  For a chunky chihuahua, an old Shepard, or a dog with three legs, the wait to be adopeted is often <i>4X as long</i>, if they find a home at all.
+       Every year around 4 million dogs enter the U.S. shelter system. When it comes to finding a home, some dogs have an especially hard time. Deemed 'less adoptable,' these are the breeds and types of dogs rescue groups have the greatest difficulty placing. For a chunky chihuahua, an old Shepard, or a dog with three legs, the wait to be adopted is often <i>4X as long</i> - if they find a home at all.
 <p>
 
 
@@ -49,18 +61,16 @@
 </div>
 
     </div>
-    <div class="col m5 .hide-on-small-only">
-<div class="topImage m8 offset-m4 s12 "></div>
+    <div class="col m5 topImage hide-on-small-only">
 
-    </div>
   </div>
+</div>
+
 </div>
 
 
 
-
-
-     <div class="parallax-container">
+     <div id="grass" class="parallax-container">
        <div class="parallax"><img src="Images/justGrass.jpg"></div>
      </div>
      <div class="section">
@@ -78,9 +88,9 @@
   <h3>Let's find you a friend.</h3>
 </div>
 <div class="row">
-<div class="col m4 midImage"></div>
+<div class="col m4 midImage hide-on-small-only"></div>
 
-<div class="col m4">
+<div class="col m4 s12">
   <form id="searchForm">
 
   <div class="row">
@@ -91,7 +101,7 @@
     <option value="" disabled selected>Select a Dog</option>
     <optgroup label="By Breed">
     <option class="xxx" value="chihuahua" >Chihuahuas</option>
-    <option value="pit bull terrier">Pitbulls</option>
+    <option value="pit bull terrier">Pit Bull Terriers</option>
   </optgroup>
   <optgroup label="By Type">
     <option value="senior">Senior Dogs</option>
@@ -126,17 +136,18 @@
 
 </div>
 
-<div class="col m4">
-<p >
-  <ul class="center-align">
-    <li class="center-align">somethi</li>
-    <li class="center-align">other things</li>
-    <li class="center-align">somethi</li>
-    <li class="center-align">other things</li>
-    <li class="center-align">somethi</li>
-    <li class="center-align">other things</li>
-  </ul>
+<div class="col m4 hide-on-small-only">
+<div class="quoteDiv">
+
+<p class="dogQuote valign">
+  “A dog is the only thing on earth that loves you more than you love yourself.”
+<p>
+  --  Josh Billings
+
 </p>
+</p>
+
+</div>
 
 
 </div>
@@ -158,18 +169,23 @@
 
 
 
-     <footer class="page-footer amber darken-4">
+     <footer id="footer" class="page-footer amber darken-4">
                <div class="container ">
                  <div class="row">
                    <div class="col l6 s12">
-                     <h5 class="white-text">Footer Content</h5>
-                     <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                     <h5 class="white-text">Articles</h5>
+                     <ul>
+                       <li><a class="grey-text text-lighten-3" href="http://www.animalleague.org/expert-advice/adoption/articles/why-adopt.html?referrer=https://www.google.com/">Why Adopt? Adoption vs Pet Store</a></li>
+                       <li><a class="grey-text text-lighten-3" href="http://www.salon.com/2015/07/19/the_chilling_reasons_why_you_shouldnt_buy_your_pets_from_a_pet_store_partner/">The chilling reasons why you shouldn’t buy your pets from a pet store</a></li>
+                       <li><a class="grey-text text-lighten-3" href="http://www.petmd.com/dog/centers/nutrition/evr_dg_animal-shelter-myths-debunked">10 Common Myths About Animal Shelters Debunked</a></li>
+                     </ul>
                    </div>
                    <div class="col l4 offset-l2 s12">
                      <h5 class="white-text">Animal Welfare Organizations</h5>
                      <ul>
                        <li><a class="grey-text text-lighten-3" href="https://www.aspca.org/">ASPCA</a></li>
                        <li><a class="grey-text text-lighten-3" href="https://secure.humanesociety.org/site/SPageServer?pagename=splashTest&prefill=35&s_src=ad_gg_search_eoy16_110116_opV&gclid=CjwKEAiAg5_CBRDo4o6e4o3NtG0SJAB-IatYSf3-ySTfMsuxm-NF-HRmnp75ZU1Py9l6EUEQ5EMWaxoCUYrw_wcB">The Humane Society</a></li>
+                       <li><a class="grey-text text-lighten-3" href="http://www.mercyforanimals.org/">Mercy For Animals</a></li>
                      </ul>
                    </div>
                  </div>
