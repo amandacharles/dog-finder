@@ -165,5 +165,9 @@ font-size: 1.3em;
   display: inline;
 }
 .hide-on-med-and-up {
-  max-height: 50px;
+  background: url(../Images/dreamstime_xs_28865443.jpg);
+     background-size: contain;
+     background-repeat: no-repeat;
+     height: 250px;
+     background-position: left;
 }
