@@ -4,6 +4,17 @@
   let dogs = [];
   let specialArray = [];
 
+  // create link to go to search form
+
+  const backToTop = function() {
+    const $contain = $('<div>').addClass('container');
+    const $row = $('<div>').addClass('row center');
+    const $col = $('<div>').addClass('col m4 s12 center center-align');
+    const $linkUp = $('<p><a href="#grass" class="purple-text text-darken-4">Back to the search form</a></p>');
+
+    $contain.append($row).append($col).append($linkUp).appendTo('#displayHere');
+  }
+
   // Render Dog Profile Cards ************
 
   const renderDogs = function() {
@@ -40,33 +51,21 @@
       $icon.text('close');
 
       $('#displayHere').append($col);
-      $col.append($card)
+      $col.append($card);
       $card.prepend($imgDiv);
       $imgDiv.append($img);
       $card.append($content);
       $content.append($span, $paragraph);
       $card.append($revealDiv);
-      $spanX.append($icon)
-      $revealDiv.append($spanX, $revealTitle, $revealContent, $link);
+      $spanX.append($icon);
+      $revealDiv.append($spanX, $revealTitle, $link, $revealContent);
     }
-
-backToTop();
+    backToTop();
 
     $('.card').hover(function(){
-  $(this).toggleClass("highlight");
+  $(this).toggleClass('highlight');
     });
-  }
-
-  const backToTop = function() {
-      const $contain = $('<div>').addClass('container')
-       const $theFooter = $('#footer');
-       const $row = $('<div>').addClass('row center');
-       const $col = $('<div>').addClass('col m4 s12 center center-align');
-       const $linkUp = $('<p><a href="#grass" class="purple-text text-darken-4">Back to the search form</a></p>')
-
-      $contain.append($row).append($col).append($linkUp).appendTo('#displayHere')
-
-  }
+  };
 
 // Search for Senior Dogs   *********************
 
@@ -80,8 +79,8 @@ backToTop();
       const theZipcode = $('#icon_prefix').val();
 
       if (theZipcode === '') {
-      Materialize.toast('Please enter a location.', 2000);
-    }
+        Materialize.toast('Please enter a location.', 2000);
+      }
 
       const $xhr = $.ajax({
         method: 'GET',
@@ -108,11 +107,9 @@ backToTop();
             email: onePet.contact.email.$t,
             image: onePet.media.photos.photo[2].$t
           }
-
           dogs.push(dog);
         }
         renderDogs();
-
       });
     }
   });
@@ -121,7 +118,7 @@ backToTop();
 
   $('#searchForm').on('submit', (event) => {
 
-    if ($( "select option:selected" ).val() === 'chihuahua' || $( "select option:selected" ).val() === 'pit bull terrier') {
+    if ($('select option:selected').val() === 'chihuahua' || $('select option:selected').val() === 'pit bull terrier') {
 
       event.preventDefault();
 
@@ -164,7 +161,6 @@ for (let i = 0; i < petArray.length; i++) {
   dogs.push(dog);
 }
       renderDogs();
-
     });
     }
   });
@@ -206,11 +202,10 @@ for (let i = 0; i < petArray.length; i++) {
     for (const key in x) {
     if (current[key] === 'specialNeeds'){
       specialArray.push(thisPet);
-    }
+     }
     }
   }
 }
-
       for (let i = 0; i < specialArray.length; i++) {
       let onePet = specialArray[i];
 
@@ -225,7 +220,6 @@ for (let i = 0; i < petArray.length; i++) {
       dogs.push(dog);
       }
       renderDogs();
-
     });
   }
 });
