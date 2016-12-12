@@ -123,7 +123,7 @@
       event.preventDefault();
 
       dogs = [];
-      const theBreed;
+      let theBreed;
 
       theBreed = $('select option:selected').val();
 
