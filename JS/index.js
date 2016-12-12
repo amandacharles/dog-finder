@@ -13,7 +13,7 @@
     const $linkUp = $('<p><a href="#grass" class="purple-text text-darken-4">Back to the search form</a></p>');
 
     $contain.append($row).append($col).append($linkUp).appendTo('#displayHere');
-  }
+  };
 
   // Render Dog Profile Cards ************
 
@@ -62,8 +62,8 @@
     }
     backToTop();
 
-    $('.card').hover(function(){
-  $(this).toggleClass('highlight');
+    $('.card').hover(function() {
+      $(this).toggleClass('highlight');
     });
   };
 
@@ -72,7 +72,7 @@
   $('#searchForm').on('submit', (event) => {
 
     if ($('select option:selected').val() === 'senior') {
-      event.preventDefault()
+      event.preventDefault();
 
       dogs = [];
 
@@ -85,7 +85,7 @@
       const $xhr = $.ajax({
         method: 'GET',
         url: 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=2d2685ee8c7cbfa08366ece6e45d8ddd&location='+theZipcode+'&age=senior&animal=dog&output=full&format=json',
-        dataType: 'json',
+        dataType: 'json'
       });
 
       $xhr.done((data) => {
@@ -93,11 +93,11 @@
           return;
         }
 
-        let results = data;
-        let petArray = results.petfinder.pets.pet
+        const results = data;
+        const petArray = results.petfinder.pets.pet
 
         for (let i = 0; i < petArray.length; i++) {
-         let onePet = petArray[i];
+         const onePet = petArray[i];
 
           const dog = {
             age: onePet.age.$t,
@@ -106,7 +106,7 @@
             description: onePet.description.$t,
             email: onePet.contact.email.$t,
             image: onePet.media.photos.photo[2].$t
-          }
+          };
           dogs.push(dog);
         }
         renderDogs();
@@ -123,11 +123,11 @@
       event.preventDefault();
 
       dogs = [];
-      let theBreed;
+      const theBreed;
 
-      theBreed = $( "select option:selected").val();
+      theBreed = $('select option:selected').val();
 
-      let theZipcode = $('#icon_prefix').val();
+      const theZipcode = $('#icon_prefix').val();
 
       if (theZipcode === '') {
         Materialize.toast('Please enter a location.', 2000);
@@ -136,13 +136,13 @@
         const $xhr = $.ajax ({
           method: 'GET',
           url: 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=2d2685ee8c7cbfa08366ece6e45d8ddd&breed='+theBreed+'&location='+theZipcode+'&output=full&count=66&format=json',
-          dataType: 'json',
+          dataType: 'json'
         });
 
     $xhr.done((data) => {
-      if ($xhr.status !== 200){
+      if ($xhr.status !== 200) {
         return;
-    }
+      }
 let results = data;
 const petArray = results.petfinder.pets.pet
 
@@ -169,7 +169,6 @@ for (let i = 0; i < petArray.length; i++) {
 
 $('#searchForm').on('submit', (event) => {
   if ($('select option:selected').val() === 'special') {
-
     event.preventDefault();
 
     dogs = [];
@@ -178,13 +177,13 @@ $('#searchForm').on('submit', (event) => {
       let theZipcode = $('#icon_prefix').val();
 
     if (theZipcode === '') {
-         Materialize.toast('Please enter a location.', 2000);
-          }
+      Materialize.toast('Please enter a location.', 2000);
+    }
 
-    const $xhr = $.ajax ({
+    const $xhr = $.ajax({
       method: 'GET',
       url: 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=2d2685ee8c7cbfa08366ece6e45d8ddd&location='+theZipcode+'&animal=dog&count=100&aoutput=full&format=json',
-      dataType: 'json',
+      dataType: 'json'
     });
 
     $xhr.done((data) => {
@@ -192,32 +191,35 @@ $('#searchForm').on('submit', (event) => {
         return;
       }
 
-      let petArray = data.petfinder.pets.pet
+      const petArray = data.petfinder.pets.pet
 
-for (let i = 0; i < petArray.length; i++) {
-  let thisPet = petArray[i];
-  let optionsArray = thisPet.options.option;
-  for (let i = 0; i < optionsArray.length; i++) {
-    let current = optionsArray[i]
-    for (const key in x) {
-    if (current[key] === 'specialNeeds'){
-      specialArray.push(thisPet);
-     }
-    }
-  }
-}
+      for (let i = 0; i < petArray.length; i++) {
+        const thisPet = petArray[i];
+        const optionsArray = thisPet.options.option;
+
+        for (let i = 0; i < optionsArray.length; i++) {
+          const current = optionsArray[i];
+
+          for (const key in x) {
+            if (current[key] === 'specialNeeds'){
+              specialArray.push(thisPet);
+            }
+          }
+        }
+      }
       for (let i = 0; i < specialArray.length; i++) {
-      let onePet = specialArray[i];
+        let onePet = specialArray[i];
 
-      let dog = {
+        const dog = {
+
         age: onePet.age.$t,
         sex: onePet.sex.$t,
         name: onePet.name.$t,
         description: onePet.description.$t,
         email: onePet.contact.email.$t,
         image: onePet.media.photos.photo[2].$t
-      }
-      dogs.push(dog);
+      };
+        dogs.push(dog);
       }
       renderDogs();
     });
