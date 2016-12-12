@@ -1,0 +1,19 @@
+PROJECT DESCRIPTION:
+
+"Wunderdogs" is a site to help people find adoptable dogs available from rescues groups in their area, specifically dogs that fall into a category described as ‘less adoptable’ (Pit Bulls Terriers, Chihuahuas, Senior Dogs, and Special Needs dogs).
+
+A typical user would be a socially-conscious person who doesn’t want to support breeders or pet stores . This allows them to see whats available to adopt from many nearby rescue groups with one online search. This is especially important as many rescue groups do not have brick and mortar locations to go visit.
+
+FEATURES:
+
+https://vimeo.com/195230946
+
+TECHNOLOGIES:
+
+jQuery
+Materialize framework
+Petfinder API
+
+FUTURE DEVELOPMENT:
+
+In the future I hope to include the ability to save dogs the user is interested in to a list.  I would also like to expand the search to include black dogs, and refine the special needs category to include the option to search by specific conditions (i.e. blind dogs, amputees, etc.)
